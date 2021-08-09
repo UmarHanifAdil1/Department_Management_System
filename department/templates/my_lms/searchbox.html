@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:#ddd7d7ea;
+        }
+        #main{
+            /* background-color: whitesmoke; */
+            position: absolute;
+            top: 35%;
+            left: 35%;
+            /* border-radius: 50%; */
+            /* padding: 20px; */
+            /* margin-top: 0px;
+            margin-left: -60px; */
+            height: 100px;
+        }
+        #in{
+            margin: 80px, 80px, 80px, 80px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#bb').click(function(){
+                let a = $('#S').val();
+                window.location.href = '../searchResult/'+a;
+            })
+        });
+        
+    </script>
+</head>
+<body>
+    <div id='main'>
+        <div id='in'>
+            <center>
+                <h1>Search</h1>
+                <br><br>
+            </center>
+            <center>
+                <form action="#" method="POST">
+                    <div class="input-group mb-3">
+                        <input id="S" type="text" class="form-control" placeholder="Enter" aria-describedby="basic-addon2" name='searched'>
+                        <div class="input-group-append">
+                        <a><button id="bb" class="btn btn-outline-secondary btn-danger" type="button">Search</button></a>
+                        </div>
+                    </div>
+                </form>
+            </center>
+        </div>
+    </div>
+</body>
+</html>

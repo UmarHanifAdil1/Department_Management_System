@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students ~ LMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:#00000063;
+        }
+        .table{
+            padding: 4rem;
+            width: 100vm;
+            color: black;
+            border-radius: 0px 0px 20px 20px;;
+            background-color: white;
+        }
+    </style>
+</head>
+<body >
+
+    <center><h1 class="pt-4" style="color: white; text-shadow:3px 3px rgba(0, 0, 0, 0.452);"><b>Student's Record</b></h1></center>
+    <div class="container pt-4">
+        <center><a href="{% url 'search' %}" style="position:absolute; top:5%; text-decoration: none;right: 22%; color: white;">Search</a></center>
+        <center><a href="{% url 'students_form' %}" style="position:absolute; top:5%; text-decoration: none;right: 10%; color: white;">Add New Record</a></center>
+        <center><a href="{% url 'homepage' %}" style="position:absolute; top:5%; text-decoration: none;right: 5%; color: white;">Home</a> </center>
+        <center><table class="table">
+            <tr>
+                <th>Sr. no.</th>
+                <th>Student Name</th>
+                <th>Phone no.</th>
+                <th>CNIC</th>
+                <th>Course Enrolled</th>
+                <th>CGPA</th>
+                <th>                </th>
+                <th></th>
+            </tr>
+        {% for s in students %} 
+            <tr>
+                <td>{{ s.id }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.phone_no }}</td>
+                <td>{{ s.cnic }}</td>
+                <td>{{ s.course_enrolled }}</td>
+                <td>{{ s.cgpa }}</td>
+                <td><a class="btn btn-primary" href="{% url 'update_student' s.id %}">Update</a></td>
+                <td><a class="btn btn-danger" href="{% url 'delete_student' s.id %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </table></center>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page ~ LMS</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:#00000063;
+            background-image: url('static/img/homepage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+        <center><h1 class="pt-4" style="color: white; text-shadow:3px 3px rgba(0, 0, 0, 0.452);"><b> Home Page</b></h1></center>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'students_record' %}" style="position:absolute; top:5%; text-decoration: none;right: 13%; color: white;">Student's Record</a>
+            <a href="{% url 'logout_page' %}" style="position:absolute; top:5%; text-decoration: none;right: 5%; color: white;">Log Out</a>
+        {% else %} 
+        <a href="{% url 'login_page' %}" style="position:absolute; top:5%; text-decoration: none;right: 5%; color: white;">Log In</a>
+        <a href="{% url 'registration_page' %}" style="position:absolute; top:5%; text-decoration: none;right: 10%; color: white;">Sign Up</a>
+        {% endif %}
+        <div class="container pt-4" style="position: fixed; top:70%; left:7.5%;">
+            <p style="background-color: rgba(0, 0, 0, 0.692); color:white; padding:10px; border-radius: 20px;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eligendi iure dicta deleniti! In sit consectetur repudiandae dignissimos architecto harum aspernatur praesentium, assumenda temporibus autem consequuntur atque inventore veniam voluptatum excepturi at, quae laudantium aut natus, recusandae placeat quis quibusdam. Distinctio animi numquam nesciunt quos nam! Officia porro quia inventore.
+            </p>
+        </div>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

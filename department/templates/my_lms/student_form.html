@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student ~ LMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:#00000063;
+        }
+        .align{
+          position:absolute;
+          left:37%;
+          top:30%;
+          background-color: white;
+          width: 350px;
+          color:black;
+          padding:20px;
+          border-radius: 20px;
+          box-shadow: 10px 10px rgba(0, 0, 0, 0.26);
+        }
+        .input-field{
+            margin-top: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <center><h1 class="pt-4" style="position: fixed; left:39%; top:15%; color: white; text-shadow:3px 3px rgba(0, 0, 0, 0.452);"><b>New Student</b></h1></center>
+    <div class="container">
+        <div class="align">
+            <center>
+                <form action="#" method="post">
+                    {% csrf_token %} 
+                    <input class="input-field" type="text" name="name" value="{{ student.name }}" placeholder="Enter Name" required><br>
+                    <input class="input-field" type="text" name="phone_no" value="{{ student.phone_no }}" placeholder="Enter Phone No." required><br>
+                    <input class="input-field" type="text" name="cnic" value="{{ student.cnic }}" placeholder="Enter CNIC" required><br>
+                    <input class="input-field" type="text" name="course_enrolled" value="{{ student.course_enrolled }}" placeholder="Course Enrolled" required><br>
+                    <label for="cgpa">CGPA:</label>
+                    <input class="input-field" type="range" list= "marks" min="0" max="4" step="0.01" name="cgpa" value="{{ student.cgpa }}" placeholder="4.0" required><br>
+                    <br><input class="input-field btn btn-primary mt-1" type="submit" value="Submit">
+                    <a class="btn btn-danger box" href="{% url 'students_record' %}">Abort</a>
+                    <datalist id="marks">
+                        <option value="0"></option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                    </datalist>
+                </form>
+            </center>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
